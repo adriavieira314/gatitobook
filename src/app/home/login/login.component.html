@@ -1,26 +1,29 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4" (submit)="load()">
-  <div class="form-group">
-    <input
-      class="form-control"
-      placeholder="Nome do usuário"
-      [(ngModel)]="usuario"
-      name="usuario"
-    >
+<form class="form mt-4" (submit)="load()" #loginForm="ngForm">
+  <div class="form-group mb-3">
+    <input class="form-control" placeholder="Nome do usuário" [(ngModel)]="usuario" name="usuario"
+      #campoUsuario="ngModel" required>
+    <app-mensagem *ngIf="campoUsuario.invalid && campoSenha.touched" mensagem="Usuário obrigatório"></app-mensagem>
+
   </div>
 
-  <div class="form-group">
-    <input
-      type="password"
-      class="form-control"
-      placeholder="Senha"
-      [(ngModel)]="senha"
-      name="senha"
-    >
+  <div class="form-group mb-3">
+    <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="senha" name="senha"
+      #campoSenha="ngModel" required>
+    <app-mensagem *ngIf="campoSenha.invalid && campoSenha.touched" mensagem="Senha obrigatório"></app-mensagem>
   </div>
 
-  <button type="submit" class="btn btn-primary -btn-bloc">
-    Login
-  </button>
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+      Login
+    </button>
+  </div>
+
 </form>
+
+
+<!--
+  #campoUsuario="ngModel" = em um formulario do tipo template o estado dos campos fica no objeto ngModel
+  #loginForm="ngForm" = em um formulario do tipo template o estado do formulario fica no objeto ngFomr
+-->
