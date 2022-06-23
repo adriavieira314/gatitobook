@@ -1,0 +1,20 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand ms-4">Gatito Book</a>
+    <!-- faz um subscribe de user -->
+    <div *ngIf="user$ | async as user">
+      <!-- se user.name existir, exibe o conteudo, senao, exibe o template -->
+      <div *ngIf="user.name; else login">
+        <i class="fa fa-user-circle me-1"></i>
+        <a class="me-4">{{ user.name }}</a>
+        <a (click)="logout()" class="me-4">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <ng-template #login>
+    <span class="navbar-text">
+      <a [routerLink]="['']" class="me-4">Login</a>
+    </span>
+  </ng-template>
+</header>
