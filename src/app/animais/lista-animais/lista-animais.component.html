@@ -1,1 +1,7 @@
-<app-grade-fotos-animais [animais]="animais"></app-grade-fotos-animais>
+<!-- async faz o subscribe e atribui a uma variavel, nesse caso,
+  variavel animais
+-->
+<div *ngIf="animais$ | async as animais">
+  <app-grade-fotos-animais [animais]="animais"></app-grade-fotos-animais>
+</div>
+
