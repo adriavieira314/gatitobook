@@ -19,15 +19,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   load() {
-    this.authService.autenticar(this.usuario, this.senha).subscribe(() => {
-      console.log('Autenticado com sucesso');
-      this.router.navigate(['animais']);
+    this.authService.autenticar(this.usuario, this.senha).subscribe({
+      next: () => {
+        console.log('Autenticado com sucesso');
+        this.router.navigate(['animais']);
 
-    }, (error) => {
-      alert('Usuário ou senha incorretos.');
-      console.log(error);
-    }
-    );
-
+      },
+      error: (error) => {
+        alert('Usuário ou senha incorretos.');
+        console.log(error);
+      },
+    });
   }
 }

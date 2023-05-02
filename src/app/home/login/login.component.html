@@ -2,15 +2,28 @@
 
 <form class="form mt-4" (submit)="load()" #loginForm="ngForm">
   <div class="form-group mb-3">
-    <input class="form-control" placeholder="Nome do usuário" [(ngModel)]="usuario" name="usuario"
-      #campoUsuario="ngModel" required>
+    <input
+      class="form-control"
+      placeholder="Nome do usuário"
+      [(ngModel)]="usuario"
+      name="usuario"
+      #campoUsuario="ngModel"
+      required
+    >
     <app-mensagem *ngIf="campoUsuario.invalid && campoSenha.touched" mensagem="Usuário obrigatório"></app-mensagem>
 
   </div>
 
   <div class="form-group mb-3">
-    <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="senha" name="senha"
-      #campoSenha="ngModel" required>
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Senha"
+      [(ngModel)]="senha"
+      name="senha"
+      #campoSenha="ngModel"
+      required
+    >
     <app-mensagem *ngIf="campoSenha.invalid && campoSenha.touched" mensagem="Senha obrigatório"></app-mensagem>
   </div>
 
