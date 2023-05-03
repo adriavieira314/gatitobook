@@ -7,9 +7,11 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenService } from './token.service';
+import { TokenService } from '../token/token.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class HeadersInterceptor implements HttpInterceptor {
 
   constructor(private tokenService: TokenService) {}

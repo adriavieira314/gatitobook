@@ -1,4 +1,4 @@
-import { TokenService } from './../autenticacao/token.service';
+import { TokenService } from '../autenticacao/token/token.service';
 import { catchError, mapTo, Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';

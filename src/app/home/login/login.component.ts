@@ -20,8 +20,9 @@ export class LoginComponent implements OnInit {
 
   load() {
     this.authService.autenticar(this.usuario, this.senha).subscribe({
-      next: () => {
+      next: (res) => {
         console.log('Autenticado com sucesso');
+        console.log(res);
         this.router.navigate(['animais']);
 
       },

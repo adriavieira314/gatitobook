@@ -1,4 +1,4 @@
-import { TokenService } from './../token.service';
+import { TokenService } from '../token/token.service';
 import { Injectable } from '@angular/core';
 import { Usuario } from './usuario';
 import jwt_decode from 'jwt-decode';
